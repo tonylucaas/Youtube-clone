@@ -1,7 +1,7 @@
 import React from 'react';
 import { Grid } from '@material-ui/core';
 import youtube from './api/youtube';
-import  { SearchBar, VideoDetail}  from './components';
+import  { SearchBar, VideoDetail, VideoList}  from './components';
 
 
 class App extends React.Component { 
@@ -23,7 +23,7 @@ handleSubmit = async (searchTerm) => {
 }
 
     render() { 
-        const { selectedVideo } = this.state;
+        const { selectedVideo, videos } = this.state;
         return(
             <Grid justifiy="center" container spacing= {10}>
                 <Grid item xs={12}>
@@ -35,7 +35,7 @@ handleSubmit = async (searchTerm) => {
                             </Grid>
                             <VideoDetail video={selectedVideo}/>
                             <Grid item xs = {4}>
-                            {/* VIDEO LIST */}
+                            <VideoList videos={videos} />
                          </Grid>
                     </Grid>
                  </Grid>
